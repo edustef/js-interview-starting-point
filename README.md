@@ -1,26 +1,31 @@
-# Javascript Interview Starting Point
+# Coffee Shop Finder
 
-This repo will serve as a starting point for your code challenge. Feel free to change anything in order to complete it: Add modules, other tests, new packages etc.
+Finds the 3 nearest coffee shops to a given position.
 
-## Steps
+## Getting started
 
-- Fork this repo
-- Clone your fork
-- Finish the exercise
-- Push your best work
+```
+git checkout develop
+```
+
+## Usage
+
+```
+npm start -- <x> <y>
+yarn start <x> <y>
+```
+
+## What was done
+
+- Input validation with zod
+- Env validation on startup
+- Sorting done using euclidean distance (I skipped square root because we only need it to compare, we don't need the actual distances)
+- Tests for sorting logic, edge cases and error handling
 
 ## Commands
 
 ```
-yarn run start  # Run the main script
-         dev    # Start development mode 
-         test   # Test the code
-````
-## Tools
-
-- Write modern JS with [babel/preset-env](https://www.npmjs.com/package/@babel/preset-env)
-- Test your code with [jest](https://www.npmjs.com/package/jest)
-
----
-
-Good luck!
+npm start -- <x> <y>    |    yarn start <x> <y>
+npm run dev              |    yarn dev
+npm test                 |    yarn test
+```

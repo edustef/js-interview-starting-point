@@ -1,12 +1,24 @@
-import { getNearestShops } from './app.js';
+import 'dotenv/config';
 
-function main(params) {
-  const position = {
+import { getNearestShops } from './app.js';
+import { positionSchema } from './utils.js';
+
+async function main() {
+  const input = positionSchema.safeParse({
     x: process.argv[2],
     y: process.argv[3],
-  };
+  });
 
-  getNearestShops(position);
+  if (!input.success) {
+    console.error('Invalid input:', input.error.errors);
+    process.exit(1);
+  }
+
+  const nearestShops = await getNearestShops(input.data);
+  console.log(nearestShops);
 }
 
-main();
+main().catch(error => {
+  console.error(error.message);
+  process.exit(1);
+});
