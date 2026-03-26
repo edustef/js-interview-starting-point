@@ -2,12 +2,6 @@
 
 Finds the 3 nearest coffee shops to a given position.
 
-## Getting started
-
-```
-git checkout develop
-```
-
 ## Usage
 
 ```
