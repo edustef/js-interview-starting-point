@@ -1,7 +1,5 @@
-import 'dotenv/config';
-
 import { getNearestShops } from './app.js';
-import { positionSchema } from './utils.js';
+import { positionSchema, fetchShops } from './utils.js';
 
 async function main() {
   const input = positionSchema.safeParse({
@@ -14,7 +12,8 @@ async function main() {
     process.exit(1);
   }
 
-  const nearestShops = await getNearestShops(input.data);
+  const shops = await fetchShops();
+  const nearestShops = getNearestShops(shops, input.data);
   console.log(nearestShops);
 }
 

@@ -1,5 +1,3 @@
-import { fetchShops } from './utils.js';
-
 const MAX_RESULTS = 3;
 
 /**
@@ -9,12 +7,11 @@ const MAX_RESULTS = 3;
  */
 
 /**
+ * @param {Position[]} shops
  * @param {Position} position
- * @returns {Promise<Position[]>}
+ * @returns {Position[]}
  */
-export async function getNearestShops(position) {
-  const shops = await fetchShops()
-
+export function getNearestShops(shops, position) {
   return shops.toSorted(byDistance(position)).slice(0, MAX_RESULTS);
 }
 
